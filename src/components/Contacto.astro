@@ -36,7 +36,7 @@ const tiposDeEstudio = [
       </dl>
     </div>
 
-    <form class="contacto__formulario" method="POST" action="/contact.php">
+    <form class="contacto__formulario" id="formulario-contacto">
       <label>
         Nombre completo
         <input type="text" name="nombre" required autocomplete="name" />
@@ -63,6 +63,27 @@ const tiposDeEstudio = [
     </form>
   </div>
 </section>
+
+<script>
+  // Sin backend (GitHub Pages): el envío abre el correo del visitante
+  // con la solicitud ya redactada hacia informes@isodec.com.pe.
+  const formulario = document.getElementById('formulario-contacto') as HTMLFormElement;
+  formulario.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    const datos = new FormData(formulario);
+    const asunto = `Solicitud de reunión — ${datos.get('nombre')}`;
+    const cuerpo = [
+      `Nombre: ${datos.get('nombre')}`,
+      `Institución: ${datos.get('institucion')}`,
+      `Correo: ${datos.get('correo')}`,
+      `Tipo de estudio: ${datos.get('tipo')}`,
+      '',
+      'Descripción del proyecto:',
+      String(datos.get('mensaje')),
+    ].join('\n');
+    location.href = `mailto:informes@isodec.com.pe?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+  });
+</script>
 
 <style>
   .contacto__grilla {

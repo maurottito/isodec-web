@@ -13,9 +13,8 @@ npm run build     # genera dist/
 npm run preview   # sirve dist/ localmente
 ```
 
-## Deploy (GoDaddy)
+## Deploy
 
-1. `npm run build`
-2. Subir el contenido de `dist/` a `public_html/` por cPanel o FTP.
+Automático con GitHub Pages: cada push a `main` publica el sitio (workflow en `.github/workflows/deploy.yml`). El dominio isodec.com.pe se configura con `public/CNAME` y los registros DNS en donweb.
 
-El formulario de contacto usa `contact.php` (PHP del hosting) y envía a informes@isodec.com.pe.
+El formulario de contacto abre el correo del visitante prellenado hacia informes@isodec.com.pe.
