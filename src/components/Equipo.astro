@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+import fotoJuan from '../assets/equipo-juan.jpg';
+import placeholder from '../assets/equipo-placeholder.svg';
+
+// MOCKUP: reemplazar cargos, reseñas y fotos pendientes con la información
+// real que confirme ISODEC. Los textos entre [corchetes] son los campos a llenar.
+const equipo = [
+  {
+    nombre: 'Edwin Joyo',
+    cargo: '[Cargo / especialidad]',
+    resena: '[Reseña breve: años de experiencia, especialidad y proyectos destacados.]',
+    linkedin: 'https://www.linkedin.com/in/edwin-joyo-08742126/',
+    foto: null, // pendiente: foto de perfil (LinkedIn bloquea la descarga automática)
+  },
+  {
+    nombre: 'Juan Archi Orihuela',
+    cargo: '[Cargo / especialidad]',
+    resena: '[Reseña breve: años de experiencia, especialidad y proyectos destacados.]',
+    linkedin: null,
+    foto: fotoJuan,
+  },
+  {
+    nombre: '[Nombre y Apellido]',
+    cargo: '[Cargo / especialidad]',
+    resena: '[Reseña breve: años de experiencia, especialidad y proyectos destacados.]',
+    linkedin: null,
+    foto: null,
+  },
+];
+---
+
+<section id="equipo" class="seccion seccion--suave">
+  <div class="contenedor">
+    <p class="etiqueta">Equipo</p>
+    <h2 class="titulo-seccion">Las personas detrás de la evidencia</h2>
+    <p class="intro-seccion">
+      Economistas, sociólogos, geógrafos y antropólogos con experiencia real de
+      campo en todo el Perú.
+    </p>
+
+    <div class="equipo__grilla">
+      {
+        equipo.map((p) => (
+          <article class="equipo__tarjeta">
+            <div class="equipo__foto">
+              {p.foto ? (
+                <Image
+                  src={p.foto}
+                  alt={`Retrato de ${p.nombre}`}
+                  widths={[340]}
+                  sizes="(max-width: 860px) 100vw, 30vw"
+                  loading="lazy"
+                />
+              ) : (
+                <img src={placeholder.src} alt="" loading="lazy" />
+              )}
+            </div>
+            <div class="equipo__datos">
+              <h3>
+                {p.nombre}
+                {p.linkedin && (
+                  <a href={p.linkedin} target="_blank" rel="noopener" aria-label={`LinkedIn de ${p.nombre}`}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V10.2H5.67v8.14h2.67zM7 9.09a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.25v-4.46c0-2.39-1.28-3.5-2.98-3.5-1.37 0-1.99.75-2.33 1.28V10.2h-2.67c.04.75 0 8.14 0 8.14h2.67v-4.55c0-.24.02-.48.09-.66.19-.48.63-.97 1.37-.97.96 0 1.35.74 1.35 1.81v4.37h2.5z" />
+                    </svg>
+                  </a>
+                )}
+              </h3>
+              <p class="equipo__cargo">{p.cargo}</p>
+              <p class="equipo__resena">{p.resena}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .equipo__grilla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .equipo__tarjeta {
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .equipo__foto {
+    aspect-ratio: 4 / 5;
+    background: #eceae5;
+  }
+
+  .equipo__foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+  }
+
+  .equipo__datos {
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-top: 3px solid var(--ladrillo);
+  }
+
+  .equipo__datos h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .equipo__datos h3 a {
+    color: var(--gris);
+    display: flex;
+  }
+
+  .equipo__datos h3 a:hover {
+    color: var(--ladrillo);
+  }
+
+  .equipo__cargo {
+    font-family: var(--fuente-titulos);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ladrillo);
+    margin: 0.2rem 0 0.6rem;
+  }
+
+  .equipo__resena {
+    font-size: 0.9375rem;
+    color: var(--gris);
+  }
+
+  @media (max-width: 860px) {
+    .equipo__grilla {
+      grid-template-columns: 1fr;
+    }
+
+    .equipo__foto {
+      aspect-ratio: 1 / 1;
+    }
+  }
+</style>
