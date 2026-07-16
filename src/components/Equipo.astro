@@ -10,7 +10,13 @@ const equipo = [
   {
     nombre: 'Edwin Joyo',
     cargo: 'Director Ejecutivo',
-    resena: '[Reseña breve: años de experiencia, especialidad y proyectos destacados.]',
+    resena:
+      'Ingeniero económico por la Universidad Nacional de Ingeniería, especialista en líneas de base social, relaciones comunitarias y valoración económica para Estudios de Impacto Ambiental.',
+    perfil: [
+      'Tiene experiencia en el análisis cuantitativo y cualitativo de estudios de líneas de base social, planes de relaciones comunitarias y valoración económica para Estudios de Impacto Ambiental (minería, hidrocarburos, electricidad y transporte, entre otros), con áreas de estudio en la selva, sierra y costa del Perú.',
+      'Ha elaborado líneas de base y evaluaciones de proyectos y programas sociales en seguridad alimentaria, agricultura, educación, salud, nutrición y VIH/SIDA, cubriendo desde el trabajo de campo y la recolección de información hasta el procesamiento de datos y los informes técnicos. Es especialista en SPSS y Stata, diseño de indicadores, análisis multivariado y planes de negocios.',
+      'Ha dirigido y realizado servicios para consultoras socioambientales como LQ Predial y Social, LQ Ambiental, Asilorza, ERM, POCH Perú (ahora WSP), ECOTEC, Walsh Perú, Social Capital Group, Green Consult y Mandrágora Consultores; para PROMPERÚ y COFOPRI en el sector público, y para GIDDEA Consulting & Training. Cuenta con capacitaciones en el INEI, UNI, UNALM, BID, CATIE (Costa Rica) y AECIP–FLACSO Ecuador.',
+    ],
     correo: 'edwin.joyo@isodec.com.pe',
     linkedin: 'https://www.linkedin.com/in/edwin-joyo-08742126/',
     foto: fotoEdwin,
@@ -77,6 +83,14 @@ const equipo = [
               </div>
             </div>
             <p class="equipo__resena">{p.resena}</p>
+            {'perfil' in p && p.perfil && (
+              <details class="equipo__perfil">
+                <summary>Ver perfil completo</summary>
+                {p.perfil.map((parrafo) => (
+                  <p>{parrafo}</p>
+                ))}
+              </details>
+            )}
             {p.correo && (
               <a class="equipo__correo" href={`mailto:${p.correo}`}>{p.correo}</a>
             )}
@@ -154,6 +168,28 @@ const equipo = [
   .equipo__resena {
     font-size: 0.9375rem;
     color: var(--gris);
+  }
+
+  .equipo__perfil {
+    margin-top: 0.75rem;
+  }
+
+  .equipo__perfil summary {
+    font-family: var(--fuente-titulos);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ladrillo);
+    cursor: pointer;
+  }
+
+  .equipo__perfil summary:hover {
+    text-decoration: underline;
+  }
+
+  .equipo__perfil p {
+    font-size: 0.9rem;
+    color: var(--gris);
+    margin-top: 0.6rem;
   }
 
   .equipo__correo {
