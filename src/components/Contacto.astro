@@ -121,6 +121,21 @@ const tiposDeEstudio = [
     border: 1px solid var(--linea);
     border-radius: 3px;
     padding: 0.6rem 0.75rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .contacto__formulario input:hover,
+  .contacto__formulario select:hover,
+  .contacto__formulario textarea:hover {
+    border-color: var(--gris);
+  }
+
+  .contacto__formulario input:focus,
+  .contacto__formulario select:focus,
+  .contacto__formulario textarea:focus {
+    outline: none;
+    border-color: var(--ladrillo);
+    box-shadow: 0 0 0 3px rgba(167, 58, 52, 0.14);
   }
 
   .contacto__formulario textarea {

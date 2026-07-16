@@ -15,9 +15,23 @@ const anio = new Date().getFullYear();
       </div>
     </div>
 
-    <p class="pie__datos">
-      <a href="mailto:informes@isodec.com.pe">informes@isodec.com.pe</a>
-    </p>
+    <div class="pie__contacto">
+      <p class="pie__datos">
+        <a href="mailto:informes@isodec.com.pe">informes@isodec.com.pe</a>
+      </p>
+      <div class="pie__redes">
+        <a href="https://www.linkedin.com/company/isodec-pe/" target="_blank" rel="noopener" aria-label="LinkedIn de ISODEC">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V10.2H5.67v8.14h2.67zM7 9.09a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.25v-4.46c0-2.39-1.28-3.5-2.98-3.5-1.37 0-1.99.75-2.33 1.28V10.2h-2.67c.04.75 0 8.14 0 8.14h2.67v-4.55c0-.24.02-.48.09-.66.19-.48.63-.97 1.37-.97.96 0 1.35.74 1.35 1.81v4.37h2.5z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/isodec" target="_blank" rel="noopener" aria-label="Facebook de ISODEC">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H5.9v-2.91h4.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.62.77-1.62 1.57v1.88h2.76l-.44 2.91h-2.32V22c4.78-.76 8.44-4.92 8.44-9.94z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 
   <div class="contenedor pie__legal">
@@ -65,6 +79,28 @@ const anio = new Date().getFullYear();
   }
 
   .pie__datos a {
+    color: #fff;
+  }
+
+  .pie__contacto {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pie__redes {
+    display: flex;
+    gap: 0.9rem;
+  }
+
+  .pie__redes a {
+    color: rgba(255, 255, 255, 0.65);
+    display: flex;
+    transition: color 0.15s ease;
+  }
+
+  .pie__redes a:hover {
     color: #fff;
   }
 
