@@ -1,0 +1,105 @@
+---
+import { Image } from 'astro:assets';
+import alpacas from '../assets/fotos/alpacas.jpg';
+import entrevista from '../assets/fotos/entrevista-cafetal.jpg';
+import tallerComunitario from '../assets/fotos/taller-comunitario.jpg';
+import encuestaUrbana from '../assets/fotos/encuesta-urbana.jpg';
+
+const fotos = [
+  {
+    imagen: entrevista,
+    alt: 'Entrevista en profundidad a un productor de café en su parcela',
+    lugar: 'Selva alta',
+    detalle: 'Entrevista a productores · cadena de valor del café',
+  },
+  {
+    imagen: tallerComunitario,
+    alt: 'Taller participativo de ISODEC con miembros de una comunidad',
+    lugar: 'Taller comunitario',
+    detalle: 'Validación participativa con actores locales',
+  },
+  {
+    imagen: encuestaUrbana,
+    alt: 'Encuestador de ISODEC aplicando una encuesta socioeconómica en la vía pública',
+    lugar: 'Encuesta urbana',
+    detalle: 'Levantamiento socioeconómico en campo',
+  },
+];
+---
+
+<section class="seccion seccion--suave campo">
+  <div class="contenedor">
+    <p class="etiqueta">Trabajo de campo</p>
+    <h2 class="titulo-seccion">Escuchamos el territorio donde ocurre</h2>
+    <p class="intro-seccion">
+      Presencia real en comunidades, zonas rurales y contextos de alta
+      complejidad social, con más de 5&nbsp;000 encuestas y entrevistas
+      aplicadas en campo.
+    </p>
+
+    <figure class="registro campo__panoramica">
+      <Image
+        src={alpacas}
+        alt="Rebaño de alpacas al amanecer en una estancia del altiplano peruano"
+        widths={[720, 1100, 1465]}
+        sizes="(max-width: 1120px) 100vw, 1072px"
+        loading="lazy"
+      />
+      <figcaption>
+        <strong>Altiplano</strong>
+        Línea de base agropecuaria en estancias altoandinas
+      </figcaption>
+    </figure>
+
+    <div class="campo__grilla">
+      {
+        fotos.map((f) => (
+          <figure class="registro">
+            <Image
+              src={f.imagen}
+              alt={f.alt}
+              widths={[400, 700]}
+              sizes="(max-width: 860px) 100vw, 33vw"
+              loading="lazy"
+            />
+            <figcaption>
+              <strong>{f.lugar}</strong>
+              {f.detalle}
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .campo__panoramica {
+    margin-top: 2.5rem;
+  }
+
+  .campo__panoramica img {
+    aspect-ratio: 1465 / 629;
+  }
+
+  .campo__grilla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .campo__grilla img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .campo__grilla figcaption {
+    font-size: 0.8125rem;
+  }
+
+  @media (max-width: 860px) {
+    .campo__grilla {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

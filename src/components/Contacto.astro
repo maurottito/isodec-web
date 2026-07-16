@@ -1,0 +1,143 @@
+---
+const tiposDeEstudio = [
+  'Línea de base socioeconómica',
+  'Evaluación de impacto social',
+  'Análisis territorial GIS',
+  'Gestión social / licencia social',
+  'Planeamiento exportador',
+  'Desarrollo productivo',
+  'Otro',
+];
+---
+
+<section id="contacto" class="seccion">
+  <div class="contenedor contacto__grilla">
+    <div>
+      <p class="etiqueta">Contacto</p>
+      <h2 class="titulo-seccion">¿Su proyecto necesita evidencia territorial?</h2>
+      <p class="intro-seccion">
+        Cuéntenos qué necesita estudiar y le responderemos en menos de 24 horas
+        con una propuesta técnica preliminar sin costo.
+      </p>
+
+      <dl class="contacto__datos">
+        <div>
+          <dt>Correo</dt>
+          <dd><a href="mailto:informes@isodec.com.pe">informes@isodec.com.pe</a></dd>
+        </div>
+        <div>
+          <dt>Sede</dt>
+          <dd>Lima, Perú — cobertura nacional</dd>
+        </div>
+        <div>
+          <dt>Sectores</dt>
+          <dd>Minería · Energía · Infraestructura · Cooperación · Estado</dd>
+        </div>
+      </dl>
+    </div>
+
+    <form class="contacto__formulario" method="POST" action="/contact.php">
+      <label>
+        Nombre completo
+        <input type="text" name="nombre" required autocomplete="name" />
+      </label>
+      <label>
+        Institución
+        <input type="text" name="institucion" autocomplete="organization" />
+      </label>
+      <label>
+        Correo
+        <input type="email" name="correo" required autocomplete="email" />
+      </label>
+      <label>
+        Tipo de estudio
+        <select name="tipo">
+          {tiposDeEstudio.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </label>
+      <label>
+        Descripción del proyecto
+        <textarea name="mensaje" rows="4" required></textarea>
+      </label>
+      <button type="submit" class="boton boton--primario">Enviar solicitud</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contacto__grilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contacto__datos {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .contacto__datos dt {
+    font-family: var(--fuente-titulos);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--gris);
+  }
+
+  .contacto__datos dd {
+    margin: 0.1rem 0 0;
+  }
+
+  .contacto__formulario {
+    background: var(--papel-suave);
+    border: 1px solid var(--linea);
+    border-radius: 3px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .contacto__formulario label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-family: var(--fuente-titulos);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .contacto__formulario input,
+  .contacto__formulario select,
+  .contacto__formulario textarea {
+    font-family: var(--fuente-texto);
+    font-size: 1rem;
+    color: var(--tinta);
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    border-radius: 3px;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .contacto__formulario textarea {
+    resize: vertical;
+  }
+
+  .contacto__formulario button {
+    border: none;
+    cursor: pointer;
+    margin-top: 0.25rem;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 860px) {
+    .contacto__grilla {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

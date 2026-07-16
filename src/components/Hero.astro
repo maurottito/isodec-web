@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import cafetal from '../assets/fotos/cafetal.jpg';
+---
+
+<section id="inicio" class="hero">
+  <div class="contenedor hero__grilla">
+    <div class="hero__texto">
+      <p class="etiqueta">Lima, Perú · Cobertura nacional</p>
+      <h1>
+        Transformamos territorios complejos en decisiones sustentadas en <em>evidencia</em>
+      </h1>
+      <p class="hero__sub">
+        Combinamos trabajo de campo, equipos multidisciplinarios e inteligencia
+        territorial para generar información confiable que orienta decisiones
+        estratégicas.
+      </p>
+      <div class="hero__acciones">
+        <a href="#contacto" class="boton boton--primario">Solicitar reunión</a>
+        <a href="#metodologia" class="boton boton--secundario">Cómo trabajamos</a>
+      </div>
+    </div>
+
+    <figure class="registro hero__foto">
+      <Image
+        src={cafetal}
+        alt="Investigador de ISODEC entrevistando a un productor de café en su parcela"
+        widths={[480, 800, 1100]}
+        sizes="(max-width: 860px) 100vw, 50vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <figcaption>
+        <strong>Registro de campo</strong>
+        Entrevista a productores de café · Desarrollo productivo
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: 4.5rem 5rem;
+  }
+
+  .hero__grilla {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.125rem, 4.2vw, 3.25rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--ladrillo);
+  }
+
+  .hero__sub {
+    font-size: 1.1875rem;
+    color: var(--gris);
+    max-width: 50ch;
+    margin-bottom: 2rem;
+  }
+
+  .hero__acciones {
+    display: flex;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__foto img {
+    border-radius: 3px 3px 0 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      padding-block: 2.5rem 3rem;
+    }
+
+    .hero__grilla {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

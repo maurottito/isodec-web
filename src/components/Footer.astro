@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import logoCuadrado from '../assets/logo-cuadrado.png';
+
+const anio = new Date().getFullYear();
+---
+
+<footer class="pie">
+  <div class="contenedor pie__fila">
+    <div class="pie__marca">
+      <Image src={logoCuadrado} alt="" width={56} densities={[1, 2]} loading="lazy" />
+      <div>
+        <p class="pie__nombre">ISODEC</p>
+        <p class="pie__lema">Investigación para el Desarrollo Sostenible</p>
+      </div>
+    </div>
+
+    <p class="pie__datos">
+      Lima, Perú · <a href="mailto:informes@isodec.com.pe">informes@isodec.com.pe</a>
+    </p>
+  </div>
+
+  <div class="contenedor pie__legal">
+    <p>© {anio} ISODEC. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .pie {
+    background: var(--tinta);
+    color: rgba(255, 255, 255, 0.8);
+    padding-block: 2.5rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .pie__fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .pie__marca {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .pie__marca img {
+    background: #fff;
+    border-radius: 4px;
+    padding: 4px;
+  }
+
+  .pie__nombre {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+
+  .pie__lema {
+    font-size: 0.875rem;
+  }
+
+  .pie__datos a {
+    color: #fff;
+  }
+
+  .pie__legal {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+</style>

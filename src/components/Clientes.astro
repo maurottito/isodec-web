@@ -1,0 +1,82 @@
+---
+import wsp from '../assets/clientes/wsp.svg';
+import asilorza from '../assets/clientes/asilorza.svg';
+
+// Logos placeholder — reemplazar/ampliar cuando ISODEC confirme la lista final.
+// Para añadir un cliente con logo: colocar el archivo en src/assets/clientes/
+// e importarlo aquí; sin logo, agregarlo solo con `nombre`.
+const clientes = [
+  { nombre: 'WSP Perú', logo: wsp },
+  { nombre: 'Instituto Peruano del Deporte' },
+  { nombre: 'Asilorza', logo: asilorza },
+];
+---
+
+<section id="clientes" class="seccion seccion--suave clientes">
+  <div class="contenedor">
+    <p class="etiqueta">Clientes</p>
+    <h2 class="titulo-seccion">Instituciones que ya confiaron en nosotros</h2>
+
+    <ul class="clientes__fila">
+      {
+        clientes.map((c) =>
+          c.logo ? (
+            <li>
+              <img src={c.logo.src} alt={`Logotipo de ${c.nombre}`} loading="lazy" height="44" />
+            </li>
+          ) : (
+            <li class="clientes__chip">{c.nombre}</li>
+          )
+        )
+      }
+    </ul>
+
+    <p class="clientes__nota">
+      Más de 40 instituciones públicas y privadas atendidas en todo el Perú.
+    </p>
+  </div>
+</section>
+
+<style>
+  .clientes__fila {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2.25rem;
+  }
+
+  .clientes__fila img {
+    height: 44px;
+    width: auto;
+    filter: grayscale(1);
+    opacity: 0.55;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+
+  .clientes__fila li:hover img {
+    filter: none;
+    opacity: 1;
+  }
+
+  .clientes__chip {
+    font-family: var(--fuente-titulos);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--gris);
+    opacity: 0.75;
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .clientes__chip:hover {
+    color: var(--tinta);
+    opacity: 1;
+  }
+
+  .clientes__nota {
+    margin-top: 2rem;
+    font-size: 0.9375rem;
+    color: var(--gris);
+  }
+</style>

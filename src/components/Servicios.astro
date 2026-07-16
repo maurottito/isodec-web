@@ -1,0 +1,120 @@
+---
+const servicios = [
+  {
+    nombre: 'Investigación Social Aplicada',
+    resumen:
+      'Estudios cuantitativos y cualitativos con rigor metodológico y sensibilidad intercultural.',
+    lineas: [
+      'Líneas de base socioeconómicas',
+      'Encuestas y entrevistas en profundidad',
+      'Focus groups y talleres participativos',
+      'Evaluación de impacto social',
+      'Participación ciudadana',
+    ],
+  },
+  {
+    nombre: 'Inteligencia Económica',
+    resumen:
+      'Análisis productivo, cadenas de valor y estrategias para proyectos de inversión y cooperación.',
+    lineas: [
+      'Desarrollo productivo',
+      'Cadenas de valor',
+      'Competitividad territorial',
+      'Planeamiento exportador',
+      'Evaluación económica de proyectos',
+    ],
+  },
+  {
+    nombre: 'Inteligencia Territorial',
+    resumen:
+      'GIS e integración socioambiental para una visión sistémica del territorio como factor de decisión.',
+    lineas: [
+      'Análisis GIS y cartografía',
+      'Diagnóstico territorial',
+      'Integración socioambiental',
+      'Planeamiento territorial',
+    ],
+  },
+];
+---
+
+<section id="servicios" class="seccion seccion--suave">
+  <div class="contenedor">
+    <p class="etiqueta">Servicios</p>
+    <h2 class="titulo-seccion">Tres líneas de trabajo, una sola lectura del territorio</h2>
+
+    <div class="servicios__grilla">
+      {
+        servicios.map((s) => (
+          <article class="servicios__tarjeta">
+            <h3>{s.nombre}</h3>
+            <p class="servicios__resumen">{s.resumen}</p>
+            <ul>
+              {s.lineas.map((l) => (
+                <li>{l}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .servicios__grilla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .servicios__tarjeta {
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    border-top: 3px solid var(--ladrillo);
+    border-radius: 3px;
+    padding: 1.75rem;
+  }
+
+  .servicios__tarjeta h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .servicios__resumen {
+    color: var(--gris);
+    font-size: 0.9375rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .servicios__tarjeta ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .servicios__tarjeta li {
+    font-size: 0.9375rem;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .servicios__tarjeta li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    background: var(--naranja);
+  }
+
+  @media (max-width: 860px) {
+    .servicios__grilla {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

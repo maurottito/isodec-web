@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import taller from '../assets/fotos/taller-gabinete.jpg';
+---
+
+<section id="nosotros" class="seccion">
+  <div class="contenedor nosotros__grilla">
+    <div>
+      <p class="etiqueta">Nosotros</p>
+      <h2 class="titulo-seccion">El territorio es un sistema vivo</h2>
+      <p>
+        ISODEC — Investigación para el Desarrollo Sostenible — es una consultora
+        peruana que genera evidencia confiable para orientar decisiones
+        estratégicas en territorios complejos. Combinamos trabajo de campo con
+        rigor metodológico, inteligencia geoespacial y una comprensión profunda
+        del contexto social y económico del Perú.
+      </p>
+      <p>
+        No coordinamos desde el escritorio: desplegamos equipos de economistas,
+        sociólogos, geógrafos, antropólogos e ingenieros en comunidades, zonas
+        rurales y contextos de alta complejidad social.
+      </p>
+      <p>
+        Nuestra identidad está inspirada en los ciclos continuos de la cultura
+        norteña: la espiral de nuestro logo representa los flujos que conectan
+        ambiente, sociedad y economía en el territorio.
+      </p>
+    </div>
+
+    <figure class="registro nosotros__foto">
+      <Image
+        src={taller}
+        alt="Equipo de ISODEC en taller de trabajo de gabinete revisando datos de campo"
+        widths={[480, 800]}
+        sizes="(max-width: 860px) 100vw, 45vw"
+        loading="lazy"
+      />
+      <figcaption>
+        <strong>Gabinete</strong>
+        Procesamiento y validación de datos de campo
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .nosotros__grilla {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .nosotros__grilla p + p {
+    margin-top: 1rem;
+  }
+
+  .nosotros__grilla > div > p:not(.etiqueta) {
+    color: var(--gris);
+  }
+
+  .nosotros__foto img {
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 860px) {
+    .nosotros__grilla {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

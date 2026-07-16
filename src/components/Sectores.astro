@@ -1,0 +1,83 @@
+---
+const sectores = [
+  {
+    nombre: 'Desarrollo Territorial',
+    detalle: 'Diagnósticos, planes de desarrollo y estrategias de articulación para territorios complejos.',
+  },
+  {
+    nombre: 'Desarrollo Productivo',
+    detalle: 'Cadenas de valor, competitividad y desarrollo de capacidades para pequeños productores.',
+  },
+  {
+    nombre: 'Promoción de Exportaciones',
+    detalle: 'Planes de negocio, análisis de mercado y estrategias de internacionalización para MYPES.',
+  },
+  {
+    nombre: 'Gestión Ambiental',
+    detalle: 'Componentes sociales de EIA, diagnósticos socioambientales y participación ciudadana.',
+  },
+  {
+    nombre: 'Infraestructura',
+    detalle: 'Líneas de base, estudios de impacto y gestión social para proyectos viales y energéticos.',
+  },
+  {
+    nombre: 'Estudios Sociales',
+    detalle: 'Investigación aplicada, encuestas y evaluación de programas para el sector público.',
+  },
+];
+---
+
+<section id="sectores" class="seccion">
+  <div class="contenedor">
+    <p class="etiqueta">Sectores</p>
+    <h2 class="titulo-seccion">Experiencia acumulada en los sectores que deciden sobre el territorio</h2>
+    <p class="intro-seccion">
+      Trabajamos con instituciones públicas, programas de cooperación
+      internacional, consultoras ambientales y proyectos de inversión en todo el
+      Perú.
+    </p>
+
+    <div class="sectores__grilla">
+      {
+        sectores.map((s) => (
+          <article class="sectores__item">
+            <h3>{s.nombre}</h3>
+            <p>{s.detalle}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .sectores__grilla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .sectores__item {
+    padding-left: 1.1rem;
+    border-left: 3px solid var(--naranja);
+  }
+
+  .sectores__item h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .sectores__item p {
+    font-size: 0.9375rem;
+    color: var(--gris);
+  }
+
+  @media (max-width: 860px) {
+    .sectores__grilla {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

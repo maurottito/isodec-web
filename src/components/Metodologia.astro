@@ -1,0 +1,94 @@
+---
+const pasos = [
+  {
+    nombre: 'Diagnóstico',
+    detalle: 'Comprensión del territorio, sus actores y sus dinámicas socioeconómicas.',
+  },
+  {
+    nombre: 'Trabajo de campo',
+    detalle: 'Encuestas, entrevistas, focus groups y talleres participativos en el territorio.',
+  },
+  {
+    nombre: 'Integración de datos',
+    detalle: 'Información social, económica, ambiental y espacial en un marco unificado.',
+  },
+  {
+    nombre: 'Análisis y GIS',
+    detalle: 'Procesamiento estadístico y modelado territorial con inteligencia geoespacial.',
+  },
+  {
+    nombre: 'Validación',
+    detalle: 'Verificación participativa de los hallazgos con los actores clave.',
+  },
+  {
+    nombre: 'Recomendaciones y soporte',
+    detalle: 'Propuestas estratégicas y acompañamiento durante la implementación.',
+  },
+];
+---
+
+<section id="metodologia" class="seccion">
+  <div class="contenedor">
+    <p class="etiqueta">Metodología</p>
+    <h2 class="titulo-seccion">De la evidencia a la decisión, en seis etapas</h2>
+    <p class="intro-seccion">
+      Cada estudio sigue un ciclo donde los datos de campo se transforman en
+      conocimiento territorial, y este en decisiones estratégicas. El ciclo no
+      termina: cada proyecto retroalimenta nuestro conocimiento acumulado del
+      territorio peruano.
+    </p>
+
+    <ol class="metodologia__pasos">
+      {
+        pasos.map((p, i) => (
+          <li>
+            <span class="metodologia__numero">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{p.nombre}</h3>
+            <p>{p.detalle}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .metodologia__pasos {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 2rem;
+    margin-top: 2.75rem;
+    counter-reset: paso;
+  }
+
+  .metodologia__pasos li {
+    border-top: 1px solid var(--linea);
+    padding-top: 1rem;
+  }
+
+  .metodologia__numero {
+    font-family: var(--fuente-titulos);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--ladrillo);
+  }
+
+  .metodologia__pasos h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0.35rem 0 0.4rem;
+  }
+
+  .metodologia__pasos p {
+    font-size: 0.9375rem;
+    color: var(--gris);
+  }
+
+  @media (max-width: 860px) {
+    .metodologia__pasos {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+  }
+</style>

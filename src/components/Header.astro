@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-horizontal.png';
+
+const enlaces = [
+  { href: '#nosotros', texto: 'Nosotros' },
+  { href: '#servicios', texto: 'Servicios' },
+  { href: '#metodologia', texto: 'Metodología' },
+  { href: '#sectores', texto: 'Sectores' },
+  { href: '#clientes', texto: 'Clientes' },
+];
+---
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a href="#inicio" class="cabecera__logo">
+      <Image src={logo} alt="ISODEC — Investigación para el Desarrollo Sostenible" width={220} densities={[1, 2]} loading="eager" />
+    </a>
+
+    <input type="checkbox" id="menu-movil" class="cabecera__check" aria-hidden="true" />
+    <label for="menu-movil" class="cabecera__hamburguesa" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="cabecera__nav" aria-label="Navegación principal">
+      {enlaces.map((e) => <a href={e.href}>{e.texto}</a>)}
+      <a href="#contacto" class="boton boton--primario cabecera__cta">Solicitar reunión</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--papel);
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .cabecera__fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 4.5rem;
+  }
+
+  .cabecera__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .cabecera__logo img {
+    width: 180px;
+    height: auto;
+  }
+
+  .cabecera__nav {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .cabecera__nav a:not(.cabecera__cta) {
+    font-family: var(--fuente-titulos);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--tinta);
+    text-decoration: none;
+  }
+
+  .cabecera__nav a:not(.cabecera__cta):hover {
+    color: var(--ladrillo);
+  }
+
+  .cabecera__cta {
+    padding: 0.55rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .cabecera__check,
+  .cabecera__hamburguesa {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    .cabecera__hamburguesa {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .cabecera__hamburguesa span {
+      width: 24px;
+      height: 2px;
+      background: var(--tinta);
+    }
+
+    .cabecera__nav {
+      display: none;
+      position: absolute;
+      top: 4.5rem;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem 1.5rem;
+      background: var(--papel);
+      border-bottom: 1px solid var(--linea);
+    }
+
+    .cabecera__check:checked ~ .cabecera__nav {
+      display: flex;
+    }
+  }
+</style>

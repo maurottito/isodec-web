@@ -1,0 +1,60 @@
+---
+const cifras = [
+  { valor: '80+', detalle: 'Proyectos de investigación ejecutados' },
+  { valor: '15', detalle: 'Regiones del Perú con trabajo en campo' },
+  { valor: '20', detalle: 'Años de trayectoria' },
+  { valor: '40+', detalle: 'Clientes e instituciones atendidas' },
+];
+---
+
+<section class="cifras" aria-label="Cifras de ISODEC">
+  <div class="contenedor cifras__grilla">
+    {
+      cifras.map((c) => (
+        <div class="cifras__item">
+          <span class="cifras__valor">{c.valor}</span>
+          <span class="cifras__detalle">{c.detalle}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .cifras {
+    background: var(--ladrillo);
+    color: #fff;
+    padding-block: 2.5rem;
+  }
+
+  .cifras__grilla {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .cifras__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .cifras__valor {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .cifras__detalle {
+    font-size: 0.9375rem;
+    opacity: 0.85;
+    max-width: 22ch;
+  }
+
+  @media (max-width: 860px) {
+    .cifras__grilla {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

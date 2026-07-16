@@ -1,0 +1,32 @@
+---
+import '@fontsource-variable/archivo';
+import '@fontsource-variable/source-sans-3';
+import '../styles/global.css';
+import logoCuadrado from '../assets/logo-cuadrado.png';
+
+const titulo = 'ISODEC — Investigación para el Desarrollo Sostenible';
+const descripcion =
+  'Consultora peruana de investigación social aplicada e inteligencia territorial. Transformamos territorios complejos en decisiones sustentadas en evidencia. Lima, Perú — cobertura nacional.';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{titulo}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="icon" type="image/png" href={logoCuadrado.src} />
+    <link rel="canonical" href="https://isodec.com.pe/" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://isodec.com.pe/" />
+    <meta property="og:locale" content="es_PE" />
+    <meta name="theme-color" content="#a73a34" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

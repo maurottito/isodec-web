@@ -1,0 +1,164 @@
+/* ISODEC — tokens de marca (muestreados del logo) */
+:root {
+  --ladrillo: #a73a34;
+  --ladrillo-oscuro: #8c2f2a;
+  --naranja: #f09968;
+  --tinta: #26211f;
+  --gris: #5c544f;
+  --papel: #ffffff;
+  --papel-suave: #f7f5f2;
+  --linea: #e5e0da;
+  --fuente-titulos: 'Archivo Variable', system-ui, sans-serif;
+  --fuente-texto: 'Source Sans 3 Variable', system-ui, sans-serif;
+  --ancho: 1120px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--tinta);
+  background: var(--papel);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--ladrillo);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ladrillo);
+  outline-offset: 2px;
+}
+
+.contenedor {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+.seccion {
+  padding-block: 5rem;
+}
+
+.seccion--suave {
+  background: var(--papel-suave);
+  border-block: 1px solid var(--linea);
+}
+
+/* Encabezado de sección: etiqueta + título */
+.etiqueta {
+  font-family: var(--fuente-titulos);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--ladrillo);
+  margin-bottom: 0.75rem;
+}
+
+.titulo-seccion {
+  font-size: clamp(1.75rem, 3.2vw, 2.375rem);
+  font-weight: 700;
+  max-width: 32ch;
+  margin-bottom: 1rem;
+}
+
+.intro-seccion {
+  color: var(--gris);
+  max-width: 62ch;
+  font-size: 1.125rem;
+}
+
+/* Botones */
+.boton {
+  display: inline-block;
+  font-family: var(--fuente-titulos);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.8rem 1.75rem;
+  border-radius: 3px;
+  transition: background-color 0.15s ease;
+}
+
+.boton--primario {
+  background: var(--ladrillo);
+  color: #fff;
+}
+
+.boton--primario:hover {
+  background: var(--ladrillo-oscuro);
+}
+
+.boton--secundario {
+  color: var(--tinta);
+  border: 1px solid var(--linea);
+  background: var(--papel);
+}
+
+.boton--secundario:hover {
+  border-color: var(--gris);
+}
+
+/* Firma visual: fotos como registro de campo */
+.registro {
+  position: relative;
+}
+
+.registro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.registro figcaption {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-top: 3px solid var(--ladrillo);
+  font-size: 0.875rem;
+  color: var(--gris);
+}
+
+.registro figcaption strong {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  color: var(--tinta);
+  white-space: nowrap;
+}
