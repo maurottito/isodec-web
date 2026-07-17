@@ -2,16 +2,14 @@
 import { Image } from 'astro:assets';
 import fotoEdwin from '../assets/equipo-edwin.jpg';
 import fotoJuan from '../assets/equipo-juan.jpg';
-import placeholder from '../assets/equipo-placeholder.svg';
+import fotoMauro from '../assets/equipo-mauro.jpg';
 
-// MOCKUP: reemplazar cargos, reseñas y fotos pendientes con la información
-// real que confirme ISODEC. Los textos entre [corchetes] son los campos a llenar.
 const equipo = [
   {
     nombre: 'Edwin Joyo',
     cargo: 'Director Ejecutivo',
     resena:
-      'Ingeniero económico por la Universidad Nacional de Ingeniería, especialista en líneas de base social, relaciones comunitarias y valoración económica para Estudios de Impacto Ambiental.',
+      'Ingeniero economista por la Universidad Nacional de Ingeniería, especialista en líneas de base social, relaciones comunitarias y valoración económica para Estudios de Impacto Ambiental.',
     correo: 'edwin.joyo@isodec.com.pe',
     linkedin: 'https://www.linkedin.com/in/edwin-joyo-08742126/',
     foto: fotoEdwin,
@@ -26,12 +24,13 @@ const equipo = [
     foto: fotoJuan,
   },
   {
-    nombre: '[Nombre y Apellido]',
-    cargo: '[Cargo / especialidad]',
-    resena: '[Reseña breve: años de experiencia, especialidad y proyectos destacados.]',
+    nombre: 'Mauro Ttito',
+    cargo: 'Científico de Datos',
+    resena:
+      'Científico de datos e ingeniero de software enfocado en sistemas de IA, pipelines de RAG y plataformas de analítica. Magíster en Análisis Computacional y Políticas Públicas por la Universidad de Chicago.',
     correo: null,
-    linkedin: null,
-    foto: null,
+    linkedin: 'https://www.linkedin.com/in/maurottito',
+    foto: fotoMauro,
   },
 ];
 ---
@@ -51,17 +50,13 @@ const equipo = [
           <article class="equipo__tarjeta">
             <div class="equipo__cabecera">
               <div class="equipo__foto">
-                {p.foto ? (
-                  <Image
-                    src={p.foto}
-                    alt={`Retrato de ${p.nombre}`}
-                    widths={[180]}
-                    sizes="90px"
-                    loading="lazy"
-                  />
-                ) : (
-                  <img src={placeholder.src} alt="" loading="lazy" />
-                )}
+                <Image
+                  src={p.foto}
+                  alt={`Retrato de ${p.nombre}`}
+                  widths={[180]}
+                  sizes="90px"
+                  loading="lazy"
+                />
               </div>
               <div>
                 <h3>
