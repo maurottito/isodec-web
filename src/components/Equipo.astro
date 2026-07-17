@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import fotoEdwin from '../assets/equipo-edwin.jpg';
 import fotoJuan from '../assets/equipo-juan.jpg';
 import fotoMauro from '../assets/equipo-mauro.jpg';
+import fotoKesber from '../assets/equipo-kesber.jpg';
 
 const equipo = [
   {
@@ -31,6 +32,15 @@ const equipo = [
     correo: 'mauro.ttito@isodec.com.pe',
     linkedin: 'https://www.linkedin.com/in/maurottito',
     foto: fotoMauro,
+  },
+  {
+    nombre: 'Kesber Ángulo Sánchez',
+    cargo: 'Consultor Estadístico y en Ciencia de Datos',
+    resena:
+      'Ingeniero estadístico con más de 18 años de experiencia en análisis estadístico, ciencia de datos e inteligencia artificial, especialista en modelamiento predictivo, desarrollo de indicadores y dashboards para la toma de decisiones.',
+    correo: null,
+    linkedin: 'https://www.linkedin.com/in/kesber-angulo-s%C3%A1nchez-2b653285',
+    foto: fotoKesber,
   },
 ];
 ---
@@ -86,7 +96,7 @@ const equipo = [
 <style>
   .equipo__grilla {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
