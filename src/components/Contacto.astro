@@ -72,12 +72,12 @@ const tiposDeEstudio = [
     const tipo = String(datos.get('tipo'));
     const mensaje = String(datos.get('mensaje')).trim();
 
-    const asunto = `Solicitud de reunión — ${institucion || nombre}`;
+    const asunto = `Solicitud de información — ${institucion || nombre}`;
     const presentacion = institucion ? `Soy ${nombre}, de ${institucion}.` : `Soy ${nombre}.`;
     const interes =
       tipo === 'Otro'
-        ? 'Nos interesa desarrollar un estudio y quisiéramos coordinar una reunión.'
-        : `Nos interesa desarrollar un estudio de ${tipo.charAt(0).toLowerCase()}${tipo.slice(1)} y quisiéramos coordinar una reunión.`;
+        ? 'Nos interesa desarrollar un estudio y quisiéramos solicitar mayor información sobre sus servicios.'
+        : `Nos interesa desarrollar un estudio de ${tipo.charAt(0).toLowerCase()}${tipo.slice(1)} y quisiéramos solicitar mayor información sobre sus servicios.`;
     const cuerpo = [
       'Estimados señores de ISODEC:',
       '',
