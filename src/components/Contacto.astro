@@ -46,10 +46,6 @@ const tiposDeEstudio = [
         <input type="text" name="institucion" autocomplete="organization" />
       </label>
       <label>
-        Correo
-        <input type="email" name="correo" required autocomplete="email" />
-      </label>
-      <label>
         Tipo de estudio
         <select name="tipo">
           {tiposDeEstudio.map((t) => <option value={t}>{t}</option>)}
@@ -71,15 +67,29 @@ const tiposDeEstudio = [
   formulario.addEventListener('submit', (evento) => {
     evento.preventDefault();
     const datos = new FormData(formulario);
-    const asunto = `Solicitud de reunión — ${datos.get('nombre')}`;
+    const nombre = String(datos.get('nombre')).trim();
+    const institucion = String(datos.get('institucion')).trim();
+    const tipo = String(datos.get('tipo'));
+    const mensaje = String(datos.get('mensaje')).trim();
+
+    const asunto = `Solicitud de reunión — ${institucion || nombre}`;
+    const presentacion = institucion ? `Soy ${nombre}, de ${institucion}.` : `Soy ${nombre}.`;
+    const interes =
+      tipo === 'Otro'
+        ? 'Nos interesa desarrollar un estudio y quisiéramos coordinar una reunión.'
+        : `Nos interesa desarrollar un estudio de ${tipo.charAt(0).toLowerCase()}${tipo.slice(1)} y quisiéramos coordinar una reunión.`;
     const cuerpo = [
-      `Nombre: ${datos.get('nombre')}`,
-      `Institución: ${datos.get('institucion')}`,
-      `Correo: ${datos.get('correo')}`,
-      `Tipo de estudio: ${datos.get('tipo')}`,
+      'Estimados señores de ISODEC:',
       '',
-      'Descripción del proyecto:',
-      String(datos.get('mensaje')),
+      `${presentacion} ${interes}`,
+      '',
+      'Sobre el proyecto:',
+      mensaje,
+      '',
+      'Quedo a la espera de su respuesta.',
+      '',
+      'Saludos cordiales,',
+      nombre,
     ].join('\n');
     location.href = `mailto:informes@isodec.com.pe?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
   });
