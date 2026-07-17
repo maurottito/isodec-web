@@ -145,8 +145,8 @@ const equipo = [
 <style>
   .equipo__grilla {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
     margin-top: 2.5rem;
   }
 
@@ -155,7 +155,7 @@ const equipo = [
     border: 1px solid var(--linea);
     border-top: 3px solid var(--ladrillo);
     border-radius: 3px;
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .equipo__cabecera {
@@ -166,8 +166,8 @@ const equipo = [
   }
 
   .equipo__foto {
-    width: 84px;
-    height: 84px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
@@ -194,7 +194,7 @@ const equipo = [
   }
 
   .equipo__cabecera h3 {
-    font-size: 1.0625rem;
+    font-size: 1rem;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -212,14 +212,14 @@ const equipo = [
 
   .equipo__cargo {
     font-family: var(--fuente-titulos);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: var(--ladrillo);
     margin-top: 0.2rem;
   }
 
   .equipo__resena {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     color: var(--gris);
   }
 
@@ -235,7 +235,13 @@ const equipo = [
     text-decoration: underline;
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1000px) {
+    .equipo__grilla {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
     .equipo__grilla {
       grid-template-columns: 1fr;
     }
